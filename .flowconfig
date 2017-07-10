@@ -1,0 +1,24 @@
+[ignore]
+<PROJECT_ROOT>/public
+<PROJECT_ROOT>/docs
+<PROJECT_ROOT>/build
+<PROJECT_ROOT>/node_modules/fbjs/.*
+<PROJECT_ROOT>/node_modules/promise/.*
+<PROJECT_ROOT>/node_modules/stylelint/*
+<PROJECT_ROOT>/node_modules/styled-components/*
+<PROJECT_ROOT>/node_modules/polished/*
+<PROJECT_ROOT>/node_modules/protobufjs/*
+
+[include]
+
+[libs]
+# styled-components
+# polished
+promise
+
+[options]
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
+
