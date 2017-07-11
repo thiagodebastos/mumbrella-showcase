@@ -2,12 +2,21 @@
 import React from 'react'
 
 type Props = {
-  section: number,
-  totalSections: number
+  currentSection: number,
+  totalSections: number,
+  currentSubsection: number,
+  totalSubsections: number
 }
-const Progress = ({ section, totalSections }: Props) =>
+const Progress = ({
+  currentSection,
+  totalSections,
+  currentSubsection,
+  totalSubsections
+}: Props) =>
   <div>
-    {section} / {totalSections}
+    {currentSection} / {totalSections}
+    <br />
+    {currentSubsection} / {totalSubsections}
   </div>
 
 export default Progress

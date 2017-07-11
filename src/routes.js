@@ -9,8 +9,8 @@ export default (
       path="/:section/:subsection"
       render={({ match }) =>
         <View
-          section={parseInt(match.params.section, 10)}
-          subsection={parseInt(match.params.subsection, 10)}
+          currentSection={parseInt(match.params.section, 10)}
+          currentSubsection={parseInt(match.params.subsection, 10)}
         />}
     />
   </Switch>

@@ -5,8 +5,8 @@ import View from './View'
 
 function mapStateToProps(state) {
   const routing = state.routing
-  const sections = state.sections
-  const viewState = state.viewState
+  const sections = state.views.sections
+  const viewState = state.views.viewState
   return {
     routing,
     viewState,

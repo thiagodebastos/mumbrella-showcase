@@ -1,7 +1,7 @@
 // @flow
 import { combineReducers } from 'redux'
 import * as types from '../actions/actionTypes'
-import sectionConfig from '../../config/sectionConfig.json'
+import sectionConfig from '../../config/sectionConfig'
 
 type ViewState = {
   +currentSection: number,

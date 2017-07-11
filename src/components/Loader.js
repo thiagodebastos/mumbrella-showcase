@@ -1,21 +1,18 @@
 // @flow
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from './Logo'
 
-type Props = {
-  onClick: Function => void
-}
-
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
 `
 
-const Loader = ({ onClick }: Props) =>
-  <Wrapper onClick={onClick}>
+const Loader = () =>
+  <Wrapper to="/1/0">
     <Logo />
   </Wrapper>
 

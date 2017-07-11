@@ -4,25 +4,39 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 type Props = {
-  section: number
+  currentSection: number,
+  currentSubsection: number,
+  title: string,
+  children: React.Element<*>
 }
 
 const Wrapper = styled.div`
-  background-color: ${props => props.colour || 'white'};
-  color: ${props => props.colour || 'black'};
+  color: ${props => props.textColour || 'black'};
+  max-width: 280px;
+  text-align: center;
+  margin-top: auto;
 `
-/* eslint-disable */
+
+const ContentArea = styled.div`
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+`
+
 const Intro = (props: Props) => {
-  const { section, colour, viewState } = props
+  const { currentSection, currentSubsection } = props
   return (
     <Wrapper>
-      <h1>
-        {section}
-        {props.colour}
-      </h1>
-      <Link to="/1/1">
-        <img src="https://placehold.it/50x50&text=V" alt="tap" />
-      </Link>
+      <ContentArea>
+        <h1>
+          {props.title}
+        </h1>
+        <Link to={`/${currentSection}/${currentSubsection + 1}`}>
+          {props.children}
+        </Link>
+      </ContentArea>
     </Wrapper>
   )
 }
