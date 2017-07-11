@@ -9,6 +9,7 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "next",
+    "history": "^4.6.3",
     "react-waypoint": "^7.0.4",
     "redux": "^3.7.0",
     "redux-beacon": "^1.1.0",
@@ -50,7 +51,6 @@
     "gulp-file": "^0.3.0",
     "gulp-s3-upload": "^1.6.4",
     "gulp-util": "^3.0.8",
-    "history": "^4.6.3",
     "html-webpack-plugin": "^2.29.0",
     "jest": "^20.0.4",
     "object-assign": "4.1.1",
@@ -81,12 +81,8 @@
     "build-storybook": "build-storybook"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
+    "setupFiles": ["<rootDir>/config/polyfills.js"],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.js?(x)",
       "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
@@ -98,9 +94,7 @@
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-    ],
+    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     }
@@ -120,20 +114,13 @@
       "stage-1",
       "react"
     ],
-    "plugins": [
-      "transform-decorators-legacy",
-      "transform-runtime"
-    ],
+    "plugins": ["transform-decorators-legacy", "transform-runtime"],
     "env": {
       "development": {
-        "plugins": [
-          "react-hot-loader/babel"
-        ]
+        "plugins": ["react-hot-loader/babel"]
       },
       "test": {
-        "plugins": [
-          "transform-es2015-modules-commonjs"
-        ]
+        "plugins": ["transform-es2015-modules-commonjs"]
       }
     }
   }

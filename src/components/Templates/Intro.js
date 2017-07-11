@@ -14,29 +14,27 @@ const Wrapper = styled.div`
   color: ${props => props.textColour || 'black'};
   max-width: 280px;
   text-align: center;
-  margin-top: auto;
 `
 
-const ContentArea = styled.div`
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: white;
+const StyledLink = styled(Link)`
+position: absolute;
+bottom: 40px;
+left: 50%;
+transform: translate(-50%);
 `
+
+const SectionTitle = styled.h1`color: white;`
 
 const Intro = (props: Props) => {
   const { currentSection, currentSubsection } = props
   return (
     <Wrapper>
-      <ContentArea>
-        <h1>
-          {props.title}
-        </h1>
-        <Link to={`/${currentSection}/${currentSubsection + 1}`}>
-          {props.children}
-        </Link>
-      </ContentArea>
+      <SectionTitle>
+        {props.title}
+      </SectionTitle>
+      <StyledLink to={`/${currentSection}/${currentSubsection + 1}`}>
+        {props.children}
+      </StyledLink>
     </Wrapper>
   )
 }

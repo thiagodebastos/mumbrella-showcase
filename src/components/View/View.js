@@ -2,6 +2,7 @@
 /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
+import { push } from 'react-router-redux'
 import Loader from '../Loader'
 import Intro from '../Templates'
 import Progress from '../Progress'
@@ -46,6 +47,7 @@ const View = (props: Props): React.Element<*> => {
     } else if (currentSubsection === 0) {
       console.info(`starting section ${currentSubsection + 1}`)
     }
+    console.info('test')
     changeView({ currentSection })
   }
 
@@ -66,6 +68,7 @@ const View = (props: Props): React.Element<*> => {
   const sectionText =
     sections[`${currentSection - 1}`].subsections[`${currentSubsection - 1}`]
       .text
+
   return (
     <Wrapper {...props} colour="black">
       <header>
@@ -80,6 +83,7 @@ const View = (props: Props): React.Element<*> => {
       <div>
         {sectionText}
       </div>
+      <button onClick={() => push('/1')}>>></button>
     </Wrapper>
   )
 }
