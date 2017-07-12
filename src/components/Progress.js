@@ -15,7 +15,6 @@ const Progress = ({
 }: Props) =>
   <div>
     {currentSection} / {totalSections}
-    <br />
     {currentSubsection} / {totalSubsections}
   </div>
 

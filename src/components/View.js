@@ -2,17 +2,18 @@
 /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { push } from 'react-router-redux'
-import Loader from '../Loader'
-import Intro from '../Templates'
-import Progress from '../Progress'
-import NextView from '../NextView'
+import Loader from './Loader'
+import Intro from './Templates'
+import Progress from './Progress'
+import NextView from './NextView'
 
-import sectionConfig from '../../config/sectionConfig'
+import sectionConfig from '../config/sectionConfig'
 
 type Props = {
   section: number,
-  sections: Array<object>,
+  sections: Array<Object>,
   subsection: number,
   changeView: Function,
   viewState?: Array<{
@@ -21,14 +22,24 @@ type Props = {
   }>
 }
 
-const Wrapper = styled.div`
+const Header = styled.header`
   display: flex;
-  height: 100vh;
+  justify-content: space-between;
+  width: 100%;
+`
+
+const Wrapper = styled.div`
+  ${props =>
+    props.flexCentered
+      ? `display: flex;
+        align-items: center;
+        flex-direction: column;`
+      : ''} height: 100vh;
   width: 100vw;
   padding: 20px 40px;
   justify-content: center;
-  align-items: center;
   background-color: ${props => props.colour || 'white'};
+  color: black;
 `
 
 const View = (props: Props): React.Element<*> => {
@@ -39,7 +50,6 @@ const View = (props: Props): React.Element<*> => {
     viewState,
     sections
   } = props
-  console.info(viewState)
 
   const nextPage = () => {
     if (currentSection === 0) {
@@ -55,7 +65,11 @@ const View = (props: Props): React.Element<*> => {
     return <Loader />
   } else if (currentSubsection === 0) {
     return (
-      <Wrapper {...props} colour={sections[`${currentSection - 1}`].colour}>
+      <Wrapper
+        {...props}
+        colour={sections[`${currentSection - 1}`].colour}
+        flexCentered
+      >
         <Intro {...props} title={sections[`${currentSection - 1}`].title}>
           <NextView onClick={nextPage} />
         </Intro>
@@ -70,20 +84,22 @@ const View = (props: Props): React.Element<*> => {
       .text
 
   return (
-    <Wrapper {...props} colour="black">
-      <header>
-        {sectionTitle}
+    <Wrapper {...props}>
+      <Header>
+        <div>
+          {sectionTitle}
+        </div>
         <Progress
           currentSection={currentSection}
           currentSubsection={currentSubsection}
           totalSections={sections.length}
           totalSubsections={totalSubsections}
         />
-      </header>
+      </Header>
       <div>
         {sectionText}
       </div>
-      <button onClick={() => push('/1')}>>></button>
+      <Link to="/">>></Link>
     </Wrapper>
   )
 }

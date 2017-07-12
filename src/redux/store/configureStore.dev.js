@@ -14,7 +14,7 @@ export function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(middleware)),
+    composeEnhancers(applyMiddleware(middleware))
   )
 
   if (module.hot) {

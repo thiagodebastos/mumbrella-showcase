@@ -1,16 +1,17 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import View from './components/View'
+import ViewContainer from './containers/ViewContainer'
 
 export default (
   <Switch>
-    <Route exact path="/" component={View} />
+    <Route exact path="/" component={ViewContainer} />
     <Route
       path="/:section/:subsection"
-      render={({ match }) =>
-        <View
+      render={({ match }, props) =>
+        <ViewContainer
           currentSection={parseInt(match.params.section, 10)}
           currentSubsection={parseInt(match.params.subsection, 10)}
+          {...props}
         />}
     />
   </Switch>

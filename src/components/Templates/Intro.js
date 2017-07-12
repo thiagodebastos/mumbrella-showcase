@@ -23,7 +23,10 @@ left: 50%;
 transform: translate(-50%);
 `
 
-const SectionTitle = styled.h1`color: white;`
+const SectionTitle = styled.h1`
+  color: white;
+  font-weight: 400;
+`
 
 const Intro = (props: Props) => {
   const { currentSection, currentSubsection } = props
